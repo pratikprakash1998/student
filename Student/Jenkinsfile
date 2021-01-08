@@ -7,7 +7,7 @@ pipeline{
 				
 					sh '''
           cd Student
-          mvn clen test package
+          mvn clean test package sonar:sonar
     '''
 		    }
 	    }
@@ -15,8 +15,8 @@ pipeline{
 	    stage('QA Stage'){
 			steps{
 					sh '''
-          cd demoStudent
-          mvn clean install sonar:sonar
+          cd Student
+          mvn clean test package sonar:sonar
     '''
 				}
 		    }
